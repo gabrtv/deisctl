@@ -47,10 +47,10 @@ func (c *FleetClient) Create(component string, data bool) (err error) {
 func (c *FleetClient) createServiceUnit(target string) (unitName string, unitPtr *unit.Unit, err error) {
 
 	// see if we were provided a specific target
-	r := regexp.MustCompile(`([a-z-]+)\.([\d]+)`)
+	r := regexp.MustCompile(`([a-z-]+)\@([\d]+)`)
 	match := r.FindStringSubmatch(target)
 	var (
-		num int
+		num       int
 		component string
 	)
 	if len(match) == 3 {
